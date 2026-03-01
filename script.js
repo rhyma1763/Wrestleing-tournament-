@@ -1,4 +1,4 @@
-const sheetURL = "https://docs.google.com/spreadsheets/d/1oBHtdeutdUbtsGXudy7fEs5ugPnkNTLgIfuKeMX4ejE/edit?usp=sharingTE_YOUR_CSV_LINK_HERE";
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQe7JJutODgPJT5YFZtMvTLdf38vVNZdKk9yg8nU955T8_khm9P035LInk-pPKIzQKYd_2i2jaixYg6/pub?output=csv";
 
 fetch(sheetURL)
   .then(res => res.text())
@@ -38,3 +38,4 @@ fetch(sheetURL)
       table.appendChild(tr);
     });
   });
+
