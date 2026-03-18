@@ -1,5 +1,4 @@
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQe7JJutODgPJT5YFZtMvTLdf38vVNZdKk9yg8nU955T8_khm9P035LInk-pPKIzQKYd_2i2jaixYg6/pub?output=csv";
-
 fetch(sheetURL)
   .then(res => res.text())
   .then(csv => {
@@ -12,7 +11,7 @@ fetch(sheetURL)
       players.push({
         name: cols[0],
         score: Number(cols[1]),
-        data: cols.slice(2) // everything else
+        data: cols.slice(2)
       });
     });
 
@@ -35,7 +34,6 @@ fetch(sheetURL)
         <td>${p.score}</td>
       `;
 
-      // add the rest of the columns
       p.data.forEach(value=>{
         const td=document.createElement("td");
         td.textContent=value;
@@ -43,11 +41,5 @@ fetch(sheetURL)
       });
 
       table.appendChild(tr);
-
     });
-
-});
-
-    });
-
-});
+  });
