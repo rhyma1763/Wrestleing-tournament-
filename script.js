@@ -1,4 +1,5 @@
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQe7JJutODgPJT5YFZtMvTLdf38vVNZdKk9yg8nU955T8_khm9P035LInk-pPKIzQKYd_2i2jaixYg6/pub?output=csv";
+
 fetch(sheetURL)
   .then(res => res.text())
   .then(csv => {
@@ -6,11 +7,13 @@ fetch(sheetURL)
     let players = [];
 
     rows.forEach(row => {
+      if (!row.trim()) return;
+
       const cols = row.split(",");
 
       players.push({
         name: cols[0],
-        score: Number(cols[1]),
+        score: Number(cols[1]) || 0,
         data: cols.slice(2)
       });
     });
@@ -20,7 +23,6 @@ fetch(sheetURL)
     const table = document.getElementById("leaderboard");
 
     players.forEach((p,i) => {
-
       const tr = document.createElement("tr");
 
       let rankClass="";
